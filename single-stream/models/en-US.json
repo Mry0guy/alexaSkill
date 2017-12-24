@@ -1,21 +1,21 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "my radio",
+      "invocationName": "Ryan's note",
       "intents": [
         {
-          "name": "PlayAudio",
+          "name": "getRyansNote",
           "samples": [
             "play",
             "start",
-            "play my radio",
-            "play my radio please",
-            "start my radio",
-            "start my radio please",
-            "start the radio",
-            "start the radio please",
-            "play the radio",
-            "play the radio please",
+            "play Ryan's note",
+            "play Ryan's note please",
+            "start Ryan's note",
+            "start Ryan's note please",
+            "start the note",
+            "start the note please",
+            "play the note",
+            "play the note please",
             "start the audio",
             "start the audio please",
             "play the audio",
@@ -31,29 +31,6 @@
         },
         {
           "name": "AMAZON.ResumeIntent"
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": [
-            "help me please",
-            "help please",
-            "what should i do",
-            "what's next",
-            "how can I listen to my radio",
-            "tell me how to play",
-            "tell me how to stop",
-            "tell me how to resume",
-            "how to stop"
-          ]
-        },
-        {
-          "name": "AMAZON.StopIntent"
-        },
-        {
-          "name": "AMAZON.CancelIntent"
-        },
-        {
-          "name": "AMAZON.StartOverIntent"
         }
       ]
     }

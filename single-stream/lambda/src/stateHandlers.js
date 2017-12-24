@@ -10,10 +10,10 @@ var stateHandlers = {
     },
     'PlayAudio': function () {
         // play the radio
-        controller.play.call(this, this.t('WELCOME_MSG', { skillName: audioData.title } ));
+        controller.play.call(this, this.t('WELCOME_MSG', { skillName: audioData.title }));
     },
     'AMAZON.HelpIntent': function () {
-        this.response.listen(this.t('HELP_MSG', { skillName: audioData.title } ));
+        this.response.listen(this.t('HELP_MSG', { skillName: audioData.title }));
         this.emit(':responseReady');
     },
     'SessionEndedRequest': function () {
@@ -28,34 +28,10 @@ var stateHandlers = {
         this.response.speak(this.t('UNHANDLED_MSG'));
         this.emit(':responseReady');
     },
-    'AMAZON.NextIntent': function () {
-        this.response.speak(this.t('CAN_NOT_SKIP_MSG'));
-        this.emit(':responseReady');
-    },
-    'AMAZON.PreviousIntent': function () { 
-        this.response.speak(this.t('CAN_NOT_SKIP_MSG'));
-        this.emit(':responseReady');
-    },
 
-    'AMAZON.PauseIntent':   function () { this.emit('AMAZON.StopIntent'); },
-    'AMAZON.CancelIntent':  function () { this.emit('AMAZON.StopIntent'); },
-    'AMAZON.StopIntent':    function () { controller.stop.call(this, this.t('STOP_MSG')) },
-
-    'AMAZON.ResumeIntent':  function () { controller.play.call(this, this.t('RESUME_MSG')) },
-
-    'AMAZON.LoopOnIntent':     function () { this.emit('AMAZON.StartOverIntent'); },
-    'AMAZON.LoopOffIntent':    function () { this.emit('AMAZON.StartOverIntent');},
-    'AMAZON.ShuffleOnIntent':  function () { this.emit('AMAZON.StartOverIntent');},
-    'AMAZON.ShuffleOffIntent': function () { this.emit('AMAZON.StartOverIntent');},
-    'AMAZON.StartOverIntent':  function () { 
-        this.response.speak(this.t('NOT_POSSIBLE_MSG'));
-        this.emit(':responseReady');
-    },
-
-    /*
-     *  All Requests are received using a Remote Control. Calling corresponding handlers for each of them.
-     */
-    'PlayCommandIssued':  function () { controller.play.call(this, this.t('WELCOME_MSG', { skillName: audioData.title } )) },
+    'AMAZON.PauseIntent': function () { this.emit('AMAZON.StopIntent'); },
+    'AMAZON.ResumeIntent': function () { controller.play.call(this, this.t('RESUME_MSG')) },
+    'PlayCommandIssued': function () { controller.play.call(this, this.t('WELCOME_MSG', { skillName: audioData.title })) },
     'PauseCommandIssued': function () { controller.stop.call(this, this.t('STOP_MSG')) }
 }
 
@@ -72,9 +48,9 @@ var controller = function () {
              */
 
             if (canThrowCard.call(this)) {
-                var cardTitle   = audioData.subtitle;
+                var cardTitle = audioData.subtitle;
                 var cardContent = audioData.cardContent;
-                var cardImage   = audioData.image;
+                var cardImage = audioData.image;
                 this.response.cardRenderer(cardTitle, cardContent, cardImage);
             }
 
